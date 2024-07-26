@@ -1,0 +1,189 @@
+
+
+
+	ORG 0
+	
+allover:
+	
+	clr TF1
+	mov TMOD, #00100000b
+	mov SCON, #01010000b
+	mov TH1, #0F6h
+	mov TL1, #0F6h
+	setb TR1
+	clr RI
+	JNB RI, $
+	CLR RI
+	mov A, SBUF
+
+	SUBB A, #30h
+	mov R4, A
+	clr TR1
+	mov TMOD, #00000001b
+	mov A, R4
+	mov R5, A
+loadC5:	
+	mov R2, #03d
+c5_loop:
+	mov R3, #174d
+C5:	mov TH0, #0FCh
+	mov TL0, #44h
+	setb TR0
+c5_con:
+	JB TF0, c5_signal
+	sjmp c5_con
+c5_signal:
+	cpl P1.0
+	clr TF0
+	djnz R3, C5
+	djnz R2, c5_loop
+	djnz R5, loadC5
+
+	
+	
+	mov A, R4
+	mov R5, A
+loadD5:	
+	mov R2, #14d
+d5_loop:
+	mov R3, #42d
+D5:	mov TH0, #0FCh
+	mov TL0, #0AEh
+	setb TR0
+d5_con:	JB TF0, d5_signal
+	sjmp d5_con
+d5_signal:
+	cpl P1.0
+	clr TF0
+	djnz R3, D5
+	djnz R2, d5_loop
+	djnz R5, loadD5
+
+
+	mov A, R4
+	mov R5, A
+loadE5:	
+	mov R2, #6d
+e5_loop:
+	mov R3, #110d
+E5:	mov TH0, #0FDh
+	mov TL0, #0Bh
+	setb TR0
+e5_con:	JB TF0, e5_signal
+	sjmp e5_con
+e5_signal:
+	cpl P1.0
+	clr TF0
+	djnz R3, E5
+	djnz R2, e5_loop
+	djnz R5, loadE5
+	
+
+	mov A, R4
+	mov R5, A
+loadF5:	
+	mov R2, #3d
+f5_loop:
+	mov R3, #233d
+F5:	mov TH0, #0FDh
+	mov TL0, #36h
+	setb TR0
+f5_con:	JB TF0, f5_signal
+	sjmp f5_con
+f5_signal:
+	cpl P1.0
+	clr TF0
+	djnz R3, F5
+	djnz R2, f5_loop
+	djnz R5, loadF5
+
+	mov A, R4
+	mov R5, A
+
+loadG5:	
+	mov R2, #7d
+g5_loop:
+	mov R3, #112d
+G5:	mov TH0, #0FDh
+	mov TL0, #83h
+	setb TR0
+g5_con:	JB TF0, g5_signal
+	sjmp g5_con
+g5_signal:
+	cpl P1.0
+	clr TF0
+	djnz R3, G5
+	djnz R2, g5_loop
+	djnz R5, loadG5
+
+	mov A, R4
+	mov R5, A
+	
+
+loadA5:	
+	mov R2, #4d
+a5_loop:
+	mov R3, #220d
+A5:	mov TH0, #0FDh
+	mov TL0, #0C9h
+	setb TR0
+a5_con:	JB TF0, a5_signal
+	sjmp a5_con
+a5_signal:
+	cpl P1.0
+	clr TF0
+	djnz R3, A5
+	djnz R2, a5_loop
+	djnz R5, loadA5
+	
+	mov A, R4
+	mov R5, A
+
+
+loadB5:	
+	mov R2, #4d
+b5_loop:
+	mov R3, #247d
+B5:	mov TH0, #0FEh
+	mov TL0, #07h
+	setb TR0
+b5_con:	JB TF0, b5_signal
+	sjmp b5_con
+b5_signal:
+	cpl P1.0
+	clr TF0
+	djnz R3, B5
+	djnz R2, b5_loop
+	djnz R5, loadB5
+	mov A, R4
+	mov R5, A
+
+
+loadC6:	
+	mov R2, #06h
+c6_loop:
+	mov R3, #174d
+C6:	mov TH0, #0FEh
+	mov TL0, #23h
+	setb TR0
+c6_con:	JB TF0, c6_signal
+	sjmp c6_con
+c6_signal:
+	cpl P1.0
+	clr TF0
+	djnz R3, C6
+	djnz R2, c6_loop
+	djnz R5, loadC6
+	mov A, R4
+	mov R5, A
+
+
+	ljmp allover
+	
+
+	
+	END
+	
+		
+	
+	
