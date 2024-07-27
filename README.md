@@ -29,6 +29,8 @@ This program takes an integer input via a keypad and displays the product of its
 ### Requirements
 - MCU 8051 IDE for simulations.
 - Proteus software for visual simulations involving LCD and keypad interactions.
+![music box](https://github.com/user-attachments/assets/82da4dc0-4fc0-4c13-b07c-cc7939651b08)
+![serial port](https://github.com/user-attachments/assets/600cb211-42a0-4b56-98f7-bf33b6999327)
 
 ### Setup and Execution
 1. Load the corresponding assembly file into your simulation environment.
