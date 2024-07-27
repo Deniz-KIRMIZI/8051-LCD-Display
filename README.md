@@ -2,7 +2,7 @@
 
 This repository contains assembly code designed for the MCU 8051 microcontroller. The codes perform specific arithmetic and display operations as detailed below.
 
-## Division of 16-bit by 8-bit Numbers
+## 16-bit by 8-bit Division
 
 ### Description
 This program performs the division of a 16-bit unsigned number by an 8-bit unsigned number. The results include both the quotient and the remainder of the division.
